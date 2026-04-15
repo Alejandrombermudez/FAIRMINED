@@ -400,50 +400,74 @@ function NewsSection({
 }
 
 function NewsCard({ post, locale, featured }: { post: PostCard; locale: Locale; featured: boolean }) {
-  const title = localize(post.title, locale) ?? localize(post.title, 'en') ?? '';
-  const excerpt = localize(post.excerpt, locale) ?? localize(post.excerpt, 'en') ?? '';
+  const title = localize(post.title, locale) || '';
+  const excerpt = localize(post.excerpt, locale) || '';
   const categoryLabel = CATEGORY_LABELS[post.category]?.[locale] ?? post.category;
   const hasImage = post.featuredImage?.asset;
+  const isExternal = post.postType === 'external';
   const date = new Date(post.publishedAt).toLocaleDateString(
     locale === 'es' ? 'es-CO' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-US',
     { year: 'numeric', month: 'long', day: 'numeric' }
   );
 
-  return (
-    <Link href={`/${locale}/news/${post.slug.current}`} className="group block">
-      <article className={`rounded-2xl overflow-hidden border border-stone-100 hover:shadow-lg transition-all hover:-translate-y-1 bg-white ${featured ? 'ring-2 ring-amber-200' : ''}`}>
-        {/* Image */}
-        <div className="h-52 bg-stone-100 overflow-hidden relative">
-          {hasImage ? (
-            <Image
-              src={urlFor(post.featuredImage).width(600).height(400).url()}
-              alt={post.featuredImage.alt ?? title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          ) : (
-            <div className="w-full h-full bg-amber-50 flex items-center justify-center text-5xl">
-              📰
-            </div>
-          )}
-          {/* Category badge */}
-          <span className="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-            {categoryLabel}
-          </span>
-        </div>
+  const href = isExternal
+    ? (post.externalUrl ?? '#')
+    : `/${locale}/news/${post.slug?.current ?? ''}`;
 
-        {/* Content */}
-        <div className="p-6">
-          <time className="text-xs text-gray-400 font-medium">{date}</time>
-          <h3 className="font-bold text-gray-900 text-lg leading-snug mt-2 mb-3 group-hover:text-amber-700 transition-colors line-clamp-2">
-            {title}
-          </h3>
-          {excerpt && (
-            <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{excerpt}</p>
+  const cardContent = (
+    <article className={`rounded-2xl overflow-hidden border border-stone-100 hover:shadow-lg transition-all hover:-translate-y-1 bg-white h-full ${featured ? 'ring-2 ring-amber-200' : ''}`}>
+      {/* Image */}
+      <div className="h-52 bg-stone-100 overflow-hidden relative">
+        {hasImage ? (
+          <Image
+            src={urlFor(post.featuredImage).width(600).height(400).url()}
+            alt={post.featuredImage.alt ?? title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        ) : (
+          <div className="w-full h-full bg-amber-50 flex items-center justify-center text-5xl">
+            📰
+          </div>
+        )}
+        <div className="absolute top-3 left-3 flex gap-2">
+          {post.category && (
+            <span className="bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              {categoryLabel}
+            </span>
+          )}
+          {isExternal && (
+            <span className="bg-gray-800/70 text-white text-xs font-bold px-2 py-1 rounded-full backdrop-blur-sm flex items-center gap-1">
+              🔗 {locale === 'es' ? 'Externo' : 'External'}
+            </span>
           )}
         </div>
-      </article>
+      </div>
+      {/* Content */}
+      <div className="p-6">
+        <time className="text-xs text-gray-400 font-medium">{date}</time>
+        <h3 className="font-bold text-gray-900 text-lg leading-snug mt-2 mb-3 group-hover:text-amber-700 transition-colors line-clamp-2">
+          {title}
+        </h3>
+        {excerpt && (
+          <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{excerpt}</p>
+        )}
+      </div>
+    </article>
+  );
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="group block">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className="group block">
+      {cardContent}
     </Link>
   );
 }

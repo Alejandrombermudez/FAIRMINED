@@ -13,7 +13,17 @@ export const revalidate = 60;
 export async function generateStaticParams() {
   const posts = await client.fetch<PostCard[]>(allPostsQuery);
   return routing.locales.flatMap((lang) =>
-    posts.map((post) => ({ lang, slug: post.slug.current }))
+    posts
+      .filter((post) => {
+        const slug = post.slug?.current ?? '';
+        // Excluir: externas, sin slug, o slugs que sean URLs (datos corruptos de prueba)
+        return (
+          post.postType !== 'external' &&
+          slug.length > 0 &&
+          !slug.startsWith('http')
+        );
+      })
+      .map((post) => ({ lang, slug: post.slug!.current }))
   );
 }
 

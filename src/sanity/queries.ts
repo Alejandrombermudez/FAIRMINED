@@ -51,8 +51,10 @@ export type SupplierCard = {
 
 export type PostCard = {
   _id: string;
+  postType: 'internal' | 'external';
   title: LocalizedString;
-  slug: { current: string };
+  slug?: { current: string };
+  externalUrl?: string;
   publishedAt: string;
   featuredImage: SanityImage;
   category: string;
@@ -107,8 +109,10 @@ export const homepageQuery = groq`
 export const latestPostsQuery = groq`
   *[_type == "post"] | order(publishedAt desc) [0...3] {
     _id,
+    postType,
     title,
     slug,
+    externalUrl,
     publishedAt,
     featuredImage { ..., asset-> },
     category,
@@ -119,8 +123,10 @@ export const latestPostsQuery = groq`
 export const allPostsQuery = groq`
   *[_type == "post"] | order(publishedAt desc) {
     _id,
+    postType,
     title,
     slug,
+    externalUrl,
     publishedAt,
     featuredImage { ..., asset-> },
     category,
@@ -131,8 +137,10 @@ export const allPostsQuery = groq`
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
+    postType,
     title,
     slug,
+    externalUrl,
     publishedAt,
     featuredImage { ..., asset-> },
     category,
