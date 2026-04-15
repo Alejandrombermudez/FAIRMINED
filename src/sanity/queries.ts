@@ -156,8 +156,9 @@ export const allSuppliersQuery = groq`
   }
 `;
 
-// Helper to extract localized value with fallback to English
+// Helper to extract localized value.
+// Fallback order: idioma pedido → español → inglés → cualquier otro que exista
 export function localize(value: LocalizedString | undefined, locale: Locale): string {
   if (!value) return '';
-  return value[locale] || value.en || '';
+  return value[locale] || value.es || value.en || value.fr || value.de || '';
 }
