@@ -8,7 +8,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
   name: 'fairmined',
-  title: 'Fairmined Studio',
+  title: 'Fairmined CMS',
 
   projectId,
   dataset,
@@ -17,27 +17,37 @@ export default defineConfig({
     structureTool({
       structure: (S) =>
         S.list()
-          .title('Content')
+          .title('📋 Contenido del sitio')
           .items([
-            // Singleton: Site Settings
+            // ─── Singletons ──────────────────────────────────────────────────
             S.listItem()
-              .title('Site Settings')
-              .id('siteSettings')
+              .title('🏠 Homepage (portada)')
+              .child(
+                S.document()
+                  .schemaType('homepage')
+                  .documentId('homepage')
+                  .title('Editar la portada'),
+              ),
+            S.listItem()
+              .title('⚙️ Configuración general')
               .child(
                 S.document()
                   .schemaType('siteSettings')
-                  .documentId('siteSettings'),
+                  .documentId('siteSettings')
+                  .title('Configuración general del sitio'),
               ),
+
             S.divider(),
-            // Collections
-            S.documentTypeListItem('page').title('Pages'),
-            S.documentTypeListItem('post').title('News & Blog'),
-            S.documentTypeListItem('supplier').title('Authorized Suppliers'),
-            S.documentTypeListItem('certifiedMine').title('Certified Mines'),
-            S.documentTypeListItem('report').title('Reports'),
+
+            // ─── Colecciones ─────────────────────────────────────────────────
+            S.documentTypeListItem('post').title('📰 Noticias y artículos'),
+            S.documentTypeListItem('supplier').title('🏭 Proveedores autorizados'),
+            S.documentTypeListItem('certifiedMine').title('⛏️ Minas certificadas'),
+            S.documentTypeListItem('report').title('📄 Reportes e informes'),
+            S.documentTypeListItem('page').title('📝 Páginas adicionales'),
           ]),
     }),
-    visionTool(),
+    visionTool({ defaultApiVersion: '2024-01-01' }),
   ],
 
   schema: {
