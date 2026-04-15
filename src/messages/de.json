@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "whatIsFairmined": "Was ist Fairmined",
+    "standard": "Standard",
+    "supplyChain": "Lieferkette",
+    "joinUs": "Mitmachen",
+    "whereToBuy": "Wo kaufen",
+    "fairminedCredits": "Fairmined Credits",
+    "ourImpact": "Unsere Wirkung",
+    "news": "Neuigkeiten",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Fairmined ist das höchste Niveau des verantwortungsvollen Bergbaus",
+      "cta": "Mehr erfahren"
+    },
+    "sections": {
+      "whatIsFairmined": "Was ist Fairmined",
+      "getInvolved": "Mitmachen",
+      "successStories": "Erfolgsgeschichten"
+    }
+  },
+  "footer": {
+    "tagline": "Nachverfolgbares Gold, gewonnen mit besten Bergbaupraktiken.",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "privacyPolicy": "Datenschutzerklärung",
+    "cookiePolicy": "Cookie-Richtlinie"
+  },
+  "common": {
+    "readMore": "Mehr lesen",
+    "viewAll": "Alle anzeigen",
+    "learnMore": "Mehr erfahren",
+    "contactUs": "Kontaktieren Sie uns",
+    "download": "Herunterladen",
+    "loadMore": "Mehr laden",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "noResults": "Keine Ergebnisse gefunden"
+  },
+  "suppliers": {
+    "title": "Autorisierte Lieferanten",
+    "description": "Finden Sie Fairmined-zertifizierte Metalllieferanten weltweit",
+    "filters": {
+      "metals": "Zertifizierte Metalle",
+      "products": "Produkte",
+      "services": "Dienstleistungen",
+      "region": "Region"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "successMessage": "Danke! Wir werden uns bald bei Ihnen melden.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  }
+}

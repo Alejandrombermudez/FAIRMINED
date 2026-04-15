@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "whatIsFairmined": "What is Fairmined",
+    "standard": "Standard",
+    "supplyChain": "Supply Chain",
+    "joinUs": "Join Us",
+    "whereToBuy": "Where to Buy",
+    "fairminedCredits": "Fairmined Credits",
+    "ourImpact": "Our Impact",
+    "news": "News",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Fairmined is the highest level of responsible mining",
+      "cta": "Learn More"
+    },
+    "sections": {
+      "whatIsFairmined": "What is Fairmined",
+      "getInvolved": "Get Involved",
+      "successStories": "Success Stories"
+    }
+  },
+  "footer": {
+    "tagline": "Traceable gold, extracted with best mining practices.",
+    "allRightsReserved": "All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "download": "Download",
+    "loadMore": "Load More",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found"
+  },
+  "suppliers": {
+    "title": "Authorized Suppliers",
+    "description": "Find Fairmined certified metal suppliers worldwide",
+    "filters": {
+      "metals": "Certified Metals",
+      "products": "Products",
+      "services": "Services",
+      "region": "Region"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "successMessage": "Thank you! We will get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again."
+  }
+}

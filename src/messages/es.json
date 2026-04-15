@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "whatIsFairmined": "Qué es Fairmined",
+    "standard": "Estándar",
+    "supplyChain": "Cadena de Suministro",
+    "joinUs": "Únete",
+    "whereToBuy": "Dónde Comprar",
+    "fairminedCredits": "Créditos Fairmined",
+    "ourImpact": "Nuestro Impacto",
+    "news": "Noticias",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Fairmined es el más alto nivel de minería responsable",
+      "cta": "Conoce más"
+    },
+    "sections": {
+      "whatIsFairmined": "Qué es Fairmined",
+      "getInvolved": "Participa",
+      "successStories": "Historias de Éxito"
+    }
+  },
+  "footer": {
+    "tagline": "Oro trazable, extraído con las mejores prácticas mineras.",
+    "allRightsReserved": "Todos los derechos reservados",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies"
+  },
+  "common": {
+    "readMore": "Leer más",
+    "viewAll": "Ver todo",
+    "learnMore": "Conoce más",
+    "contactUs": "Contáctanos",
+    "download": "Descargar",
+    "loadMore": "Cargar más",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "noResults": "Sin resultados"
+  },
+  "suppliers": {
+    "title": "Proveedores Autorizados",
+    "description": "Encuentra proveedores de metales certificados Fairmined en todo el mundo",
+    "filters": {
+      "metals": "Metales Certificados",
+      "products": "Productos",
+      "services": "Servicios",
+      "region": "Región"
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "successMessage": "¡Gracias! Te responderemos pronto.",
+    "errorMessage": "Algo salió mal. Por favor intenta de nuevo."
+  }
+}
